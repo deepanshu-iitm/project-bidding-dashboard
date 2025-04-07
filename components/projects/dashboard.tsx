@@ -14,14 +14,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogOverlay,
 } from "@/components/ui/dialog";
 import { Bid, Project } from "@/app/types";
 import { toast } from "sonner";
 
 export function ProjectsDashboard() {
   const [bids, setBids] = useState<Bid[]>([]);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [bidAmount, setBidAmount] = useState("");
   const [bidTimeline, setBidTimeline] = useState("");
   const [proposal, setProposal] = useState("");
@@ -52,7 +50,6 @@ export function ProjectsDashboard() {
     setBidAmount("");
     setBidTimeline("");
     setProposal("");
-    setSelectedProject(null);
   };
 
   const getBidStatus = (projectId: number) => {
@@ -108,7 +105,6 @@ export function ProjectsDashboard() {
                             <Dialog>
                               <DialogTrigger asChild>
                                 <Button
-                                  onClick={() => setSelectedProject(project)}
                                   className="bg-black text-white dark:bg-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-400 font-medium px-4 py-2 rounded-md shadow-sm transition-all"                                >
                                   Place Bid
                                 </Button>
